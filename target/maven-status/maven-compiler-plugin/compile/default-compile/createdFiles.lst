@@ -1,0 +1,5 @@
+com\config\HibernateConfig.class
+com\dao\SupplierDao.class
+com\model\Supplier.class
+com\daoimpl\SupplierDaoImpl.class
+com\SupplierBackend\App.class
