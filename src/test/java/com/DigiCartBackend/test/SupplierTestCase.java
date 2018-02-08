@@ -21,7 +21,7 @@ public class SupplierTestCase {
 		context.refresh();
 		supplierDao = (SupplierDao) context.getBean("supplierDAO");
 	}
-
+//
 //	@Test
 //	public void testAddSupplier() {
 //		supplier = new Supplier();
@@ -30,18 +30,18 @@ public class SupplierTestCase {
 //		assertEquals("Successfully added a supplier details into the table", true, supplierDao.insertSupp(supplier));
 //	}
 
-	@Test
-	 public void testGetSupplier(){
-	 supplier=supplierDao.get(1);
-	 assertEquals("Successfully fetched a supplier details from the table","xyz", supplier.getSname());
-	 }
+//	@Test
+//	 public void testGetSupplier(){
+//	 supplier=supplierDao.get(1);
+//	 assertEquals("Successfully fetched a supplier details from the table","xyz", supplier.getSname());
+//	 }
 //
-	@Test
-	 public void testUpdateSupplier(){
-	 supplier=supplierDao.get(1);
-	 supplier.setSname("xyz");
-	 assertEquals("Successfully updated a supplier details from the table",true, supplierDao.updateSupp(supplier));
-	 }
+//	@Test
+//	 public void testUpdateSupplier(){
+//	 supplier=supplierDao.get(1);
+//	 supplier.setSname("xyz");
+//	 assertEquals("Successfully updated a supplier details from the table",true, supplierDao.updateSupp(supplier));
+//	 }
 
 //	@Test
 //	public void testDeleteSupplier() {
@@ -49,6 +49,6 @@ public class SupplierTestCase {
 //	}
 	@Test
 	public void testGetAllSupplier() {
-		assertEquals("Successfully fetched all supplier details from the table",1, supplierDao.getAllSuppliers().size());
+		assertEquals("Successfully fetched all supplier details from the table",3, supplierDao.getAllSuppliers().size());
 	}
 }

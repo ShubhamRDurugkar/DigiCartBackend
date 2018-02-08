@@ -8,9 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.model.User;
 import com.dao.UserDao;
-@Repository("UserDao")
+import com.model.User;
+@Repository("userDao")
+@Transactional
 public class UserDaoImpl implements UserDao {
 @Autowired
 private SessionFactory sessionFactory;
@@ -34,8 +35,8 @@ public UserDaoImpl(SessionFactory sf) {
 	// TODO Auto-generated constructor stub
 }
 
-@Transactional
-	public boolean insert(User user) {
+
+public boolean insertUser(User user) {
 	try{
 		sessionFactory.getCurrentSession().saveOrUpdate(user);
 		return true;
@@ -43,21 +44,41 @@ public UserDaoImpl(SessionFactory sf) {
 		e.printStackTrace();
 		return false;
 	}
+}
+public boolean updateUser(User user) {
+	try {
+		sessionFactory.getCurrentSession().update(user);
+		return true;
+	} catch (Exception e) {
+		e.printStackTrace();
+		return false;
 	}
-public void insertUser(User user) {
-	
 }
-public void updateUser(User user) {
-	
-}
-public void deleteUser(User user) {
-	
+public boolean deleteUser(String email) {
+	User user = (User) sessionFactory.getCurrentSession().load(User.class, email);
+	try {
+		if (null != user) {
+			this.sessionFactory.getCurrentSession().delete(user);
+		}
+		return true;
+	} catch (Exception e) {
+		e.printStackTrace();
+		return false;
+	}
 }
 public User getUserById(int id) {
 	return null;
 }
+@SuppressWarnings("unchecked")
 public List<User> getAllUsers() {
-	return list;
+	return sessionFactory.getCurrentSession().createQuery("from User").list();
+
 }
+
+public User getEmail(String email) {
+	return sessionFactory.getCurrentSession().get(User.class, String.valueOf(email));
+}
+
+
 
 }

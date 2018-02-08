@@ -3,8 +3,6 @@ package com.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
@@ -37,11 +35,12 @@ public class User implements Serializable {
 		this.enabled = enabled;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int uid;
+	
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//private int uid;
 	private String name;
 	private String password;
+	@Id
 	private String email;
 	private String address;
 	private String phone;
@@ -54,14 +53,14 @@ public class User implements Serializable {
 	public User() {
 		super();
 	}
-
-	public int getId() {
-		return uid;
-	}
-
-	public void setId(int id) {
-		this.uid = id;
-	}
+//
+//	public int getId() {
+//		return uid;
+//	}
+//
+//	public void setId(int id) {
+//		this.uid = id;
+//	}
 
 	public String getName() {
 		return name;

@@ -6,16 +6,16 @@ import com.model.User;
 
 public interface UserDao {
 	
-	//boolean insert(User user);
+	boolean insertUser(User user);
 
-	void insertUser(User user);
+	boolean updateUser(User user);
 
-	void updateUser(User user);
-
-	void deleteUser(User user);
+	boolean deleteUser(String email);
 
 	User getUserById(int id);
 
 	List<User> getAllUsers();
+
+	User getEmail(String email);
 
 }

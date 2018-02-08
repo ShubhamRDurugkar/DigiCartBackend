@@ -1,11 +1,10 @@
 CREATE TABLE supplier(
-sid int,
+sid IDENTITY,
 sname varchar(50),
 CONSTRAINT pk_supplier_sid PRIMARY KEY (sid)
 );
 
 CREATE TABLE user(
-uid int,
 name varchar(50),
 password varchar(50),
 email varchar(50),
@@ -14,17 +13,17 @@ phone varchar(50),
 country varchar(50),
 role varchar(50),
 enabled boolean,
-CONSTRAINT pk_user_uid PRIMARY KEY (uid)
+CONSTRAINT pk_user_email PRIMARY KEY (email)
 );
 
 CREATE TABLE category(
-cid int,
+cid IDENTITY,
 cname varchar(50),
 CONSTRAINT pk_category_cid PRIMARY KEY (cid)
 );
 
 CREATE TABLE products(
-pid int,
+pid IDENTITY,
 productName varchar(50),
 productDescription varchar(200),
 productPrice int,
