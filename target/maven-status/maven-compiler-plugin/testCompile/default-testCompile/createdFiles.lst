@@ -1,2 +1,2 @@
-com\SupplierBackend\test\SupplierTestCase.class
-com\SupplierBackend\AppTest.class
+com\DigiCartBackend\AppTest.class
+com\DigiCartBackend\test\SupplierTestCase.class

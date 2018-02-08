@@ -18,9 +18,13 @@ public class SupplierDaoImpl implements SupplierDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	public SupplierDaoImpl(SessionFactory sf) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public boolean insertSupp(Supplier supp) {
 		try {
-			sessionFactory.getCurrentSession().persist(supp);
+			sessionFactory.getCurrentSession().saveOrUpdate(supp);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,11 +59,11 @@ public class SupplierDaoImpl implements SupplierDao {
 	}
 
 	// Getting single supplier details by id
-	public Supplier get(int id) {
-		return sessionFactory.getCurrentSession().get(Supplier.class, Integer.valueOf(id));
+	public Supplier get(int sid) {
+		return sessionFactory.getCurrentSession().get(Supplier.class, Integer.valueOf(sid));
 	}
 
-	@SuppressWarnings({ "unchecked", "deprecation" })
+	@SuppressWarnings({ "unchecked" })
 	public List<Supplier> getAllSuppliers() {
 		return sessionFactory.getCurrentSession().createQuery("from Supplier").list();
 
