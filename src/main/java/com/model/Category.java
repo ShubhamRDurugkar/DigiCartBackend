@@ -27,18 +27,18 @@ public class Category {
 	}
 	private String cname;
 	
-	@OneToMany(targetEntity=Product.class,fetch=FetchType.EAGER,mappedBy="category")
-	private Set<Product> products=new HashSet<Product>(0);
+//	@OneToMany(targetEntity=Product.class,fetch=FetchType.EAGER,mappedBy="category")
+//	private Set<Product> products=new HashSet<Product>(0);
 	public int getCid() {
 		return cid;
 	}
-	public Set<Product> getProducts() {
-		return products;
-	}
-	public void setProducts(Set<Product> products) {
-		this.products = products;
-	}
-	
+//	public Set<Product> getProducts() {
+//		return products;
+//	}
+//	public void setProducts(Set<Product> products) {
+//		this.products = products;
+//	}
+//	
 	public String getCname() {
 		return cname;
 	}

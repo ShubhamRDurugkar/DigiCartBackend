@@ -5,13 +5,15 @@ import java.util.List;
 import com.model.Category;
 
 public interface CategoryDao {
-	void insertCategory(Category category);
+	boolean insertCategory(Category category);
 
-	void updateCategory(Category category);
+	boolean updateCategory(Category category);
 
-	void deleteCategory(Category category);
+	boolean deleteCategory(int cid);
 
 	Category getCategory(String id);
 
 	List<Category> getAllCategories();
+
+	Category get(int cid);
 }
