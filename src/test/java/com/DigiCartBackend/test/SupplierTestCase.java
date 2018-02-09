@@ -47,8 +47,8 @@ public class SupplierTestCase {
 //	public void testDeleteSupplier() {
 //		assertEquals("Successfully deleted supplier details from the table", true, supplierDao.deleteSupp(7));
 //	}
-	@Test
-	public void testGetAllSupplier() {
-		assertEquals("Successfully fetched all supplier details from the table",3, supplierDao.getAllSuppliers().size());
-	}
+//	@Test
+//	public void testGetAllSupplier() {
+//		assertEquals("Successfully fetched all supplier details from the table",3, supplierDao.getAllSuppliers().size());
+//	}
 }

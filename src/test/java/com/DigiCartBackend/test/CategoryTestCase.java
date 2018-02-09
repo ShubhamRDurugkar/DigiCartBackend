@@ -23,12 +23,12 @@ public class CategoryTestCase {
 		categoryDao = (CategoryDao) context.getBean("categoryDao");
 	}
 
-	@Test
-	public void testAddCategory() {
-		category = new Category();
-		category.setCname("Electronics");
-		assertEquals("Successfully added a supplier details into the table", true, categoryDao.insertCategory(category));
-	}
+//	@Test
+//	public void testAddCategory() {
+//		category = new Category();
+//		category.setCname("Electronics");
+//		assertEquals("Successfully added a supplier details into the table", true, categoryDao.insertCategory(category));
+//	}
 
 	@Test
 	 public void testGetSupplier(){
@@ -48,8 +48,8 @@ public class CategoryTestCase {
 //	public void testDeleteSupplier() {
 //		assertEquals("Successfully deleted supplier details from the table", true, categoryDao.deleteCategory(1));
 //	}
-	@Test
-	public void testGetAllSupplier() {
-		assertEquals("Successfully fetched all supplier details from the table",1, categoryDao.getAllCategories().size());
-	}
+//	@Test
+//	public void testGetAllSupplier() {
+//		assertEquals("Successfully fetched all supplier details from the table",1, categoryDao.getAllCategories().size());
+//	}
 }

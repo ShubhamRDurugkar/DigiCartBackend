@@ -44,21 +44,21 @@ public class UserTestCase {
 	 assertEquals("Successfully fetched a supplier details from the table","Shubham R Durugkar", user.getName());
 	 }
 
-	@Test
-	 public void testUpdateUser(){
-	 user=userDao.getEmail("shubham341.@gmail.com");
-	 user.setName("Shubham R Durugkar");
-	// user.setEmail("shubham341.rd@gmail.com");
-	 assertEquals("Successfully updated a supplier details from the table",true, userDao.updateUser(user));
-	 }
+//	@Test
+//	 public void testUpdateUser(){
+//	 user=userDao.getEmail("shubham341.@gmail.com");
+//	 user.setName("Shubham R Durugkar");
+//	// user.setEmail("shubham341.rd@gmail.com");
+//	 assertEquals("Successfully updated a supplier details from the table",true, userDao.updateUser(user));
+//	 }
 
 //	@Test
 //	public void testDeleteSupplier() {
 //		assertEquals("Successfully deleted supplier details from the table", true, supplierDao.deleteSupp(7));
 //	}
-	@Test
-	public void testGetAllUser() {
-		assertEquals("Successfully fetched all supplier details from the table",1, userDao.getAllUsers().size());
-	}
+//	@Test
+//	public void testGetAllUser() {
+//		assertEquals("Successfully fetched all supplier details from the table",1, userDao.getAllUsers().size());
+//	}
 
 }
