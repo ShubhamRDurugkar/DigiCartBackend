@@ -1,27 +1,18 @@
 package com.DigiCartBackend.test;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import com.dao.SupplierDao;
-import com.model.Supplier;
-
 public class SupplierTestCase {
-	private static AnnotationConfigApplicationContext context;
-	private static SupplierDao supplierDao;
-	private Supplier supplier;
-
-	@BeforeClass
-	public static void init() {
-		context = new AnnotationConfigApplicationContext();
-		context.scan("com");
-		context.refresh();
-		supplierDao = (SupplierDao) context.getBean("supplierDAO");
-	}
+//	private static AnnotationConfigApplicationContext context;
+//	private static SupplierDao supplierDao;
+//	private Supplier supplier;
 //
+//	@BeforeClass
+//	public static void init() {
+//		context = new AnnotationConfigApplicationContext();
+//		context.scan("com");
+//		context.refresh();
+//		supplierDao = (SupplierDao) context.getBean("supplierDAO");
+//	}
+////
 //	@Test
 //	public void testAddSupplier() {
 //		supplier = new Supplier();

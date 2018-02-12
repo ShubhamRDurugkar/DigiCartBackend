@@ -18,9 +18,13 @@ import com.daoimpl.CategoryDaoImpl;
 import com.daoimpl.ProductDaoImpl;
 import com.daoimpl.SupplierDaoImpl;
 import com.daoimpl.UserDaoImpl;
+import com.model.Category;
+import com.model.Product;
+import com.model.Supplier;
+import com.model.User;
 
 @Configuration
-@ComponentScan(basePackages = { "com.model" })
+@ComponentScan
 @EnableTransactionManagement
 public class HibernateConfig {
 
@@ -46,9 +50,17 @@ public class HibernateConfig {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
 		System.out.println("Session Object created..");
 		builder.addProperties(getHibernateProperties());
+		
 		System.out.println("Properties added");
-		builder.scanPackages("com.model");
-		System.out.println("user class added");
+		//builder.scanPackages("com.model");
+		builder.addAnnotatedClass(User.class);
+		builder.addAnnotatedClass(Supplier.class);
+		builder.addAnnotatedClass(Category.class);
+		builder.addAnnotatedClass(Product.class);
+		//builder.addAnnotatedClass(Order.class);
+		//builder.addAnnotatedClass(Cart.class);
+		
+		System.out.println("All classes added");
 		return builder.buildSessionFactory();
 	}
 
@@ -86,6 +98,16 @@ public class HibernateConfig {
 		return new ProductDaoImpl(sf);
 	}
 
+//	@Autowired
+//	@Bean(name = "orderDaoImpl")
+//	public OrderDaoImpl getOrderData(SessionFactory sf) {
+//		return new OrderDaoImpl(sf);
+//	}
+//	@Autowired
+//	@Bean(name = "cartDaoImpl")
+//	public cartDaoImpl getCartData(SessionFactory sf) {
+//		return new CartDaoImpl(sf);
+//	}
 	// transactionManager
 	@Autowired
 	@Bean(name = ("transactionManager"))

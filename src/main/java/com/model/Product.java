@@ -11,7 +11,6 @@ import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
-
 @Component
 @Entity
 @Table(name = "products")
@@ -100,12 +99,5 @@ public class Product {
 		this.category = category;
 	}
 
-	public Supplier getSupplier() {
-		return supplier;
-	}
-
-	public void setSupplier(Supplier supplier) {
-		this.supplier = supplier;
-	}
-
+	
 }
