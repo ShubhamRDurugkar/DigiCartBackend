@@ -5,6 +5,7 @@ CONSTRAINT pk_supplier_sid PRIMARY KEY (sid)
 );
 
 CREATE TABLE user(
+id IDENTITY,
 name varchar(50),
 password varchar(50),
 email varchar(50),
@@ -13,7 +14,7 @@ phone varchar(50),
 country varchar(50),
 role varchar(50),
 enabled boolean,
-CONSTRAINT pk_user_email PRIMARY KEY (email)
+CONSTRAINT pk_user_id PRIMARY KEY (id)
 );
 
 CREATE TABLE category(

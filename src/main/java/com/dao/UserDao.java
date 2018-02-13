@@ -16,6 +16,4 @@ public interface UserDao {
 
 	List<User> getAllUsers();
 
-	User getEmail(String email);
-
 }

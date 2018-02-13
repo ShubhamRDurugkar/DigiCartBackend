@@ -1,14 +1,18 @@
 package com.daoimpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.CategoryDao;
 import com.model.Category;
+
 
 @Repository("categoryDao")
 @Transactional
@@ -18,30 +22,44 @@ public class CategoryDaoImpl implements CategoryDao {
 	private SessionFactory sessionFactory;
 
 	public CategoryDaoImpl(SessionFactory sf) {
-		// TODO Auto-generated constructor stub
+		super();
+		this.sessionFactory=sf;
 	}
 
 	public boolean insertCategory(Category category) {
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(category);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
+		} finally {
+			session.getTransaction().commit();
+			session.close();
 		}
+
 	}
 
 	public boolean updateCategory(Category category) {
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
 		try {
 			sessionFactory.getCurrentSession().update(category);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
+		} finally {
+			session.getTransaction().commit();
+			session.close();
 		}
 	}
 
 	public boolean deleteCategory(int cid) {
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
 		Category category = (Category) sessionFactory.getCurrentSession().load(Category.class, cid);
 		try {
 			if (null != category) {
@@ -50,21 +68,33 @@ public class CategoryDaoImpl implements CategoryDao {
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
+		} finally {
+			session.getTransaction().commit();
+			session.close();
 		}
-		return false;
+
 	}
 
 	public Category getCategory(String cid) {
-		return sessionFactory.getCurrentSession().get(Category.class, Integer.valueOf(cid));
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		Category category = (Category) session.get(Category.class, cid);
+		session.getTransaction().commit();
+		session.close();
+		return category;
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Category> getAllCategories() {
-		return sessionFactory.getCurrentSession().createQuery("from Category").list();
-	}
-
-	public Category get(int cid) {
-		return sessionFactory.getCurrentSession().get(Category.class, Integer.valueOf(cid));
+		List<Category> catList = new ArrayList<Category>();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		Query<Category> query = session.createQuery("FROM Category");
+		catList = query.list();
+		session.getTransaction().commit();
+		session.close();
+		return catList;
 	}
 
 }

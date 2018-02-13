@@ -15,5 +15,4 @@ public interface CategoryDao {
 
 	List<Category> getAllCategories();
 
-	Category get(int cid);
 }

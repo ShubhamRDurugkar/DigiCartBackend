@@ -1,5 +1,7 @@
 com\daoimpl\ProductDaoImpl.class
 com\DigiCartBackend\App.class
+com\model\Cart.class
+com\dao\CartDao.class
 com\calling\invokeMethod.class
 com\model\Category.class
 com\dao\CategoryDao.class
