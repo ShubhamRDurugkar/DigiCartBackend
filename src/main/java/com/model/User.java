@@ -3,8 +3,6 @@ package com.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,10 +15,20 @@ public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Override
-	public String toString() {
-		return "User [name=" + name + ", password=" + password + ", email=" + email + ", address=" + address
-				+ ", phone=" + phone + ", country=" + country + "]";
+	private String name;
+	private String password;
+	@Id
+	private String email;
+	private String address;
+	private String phone;
+	private String country;
+	private String role;
+	private boolean enabled;
+	
+
+
+	public User() {
+		super();
 	}
 
 	public String getRole() {
@@ -39,30 +47,8 @@ public class User implements Serializable {
 		this.enabled = enabled;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String name;
-	private String password;
-	private String email;
-	private String address;
-	private String phone;
-	private String country;
-	private String role;
-	private boolean enabled;
-	
-
-
-	public User() {
-		super();
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	public String getName() {

@@ -5,8 +5,6 @@ import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -19,7 +17,6 @@ import org.springframework.stereotype.Component;
 @Table(name = "supplier")
 public class Supplier {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int sid;
 	private String sname;
 
@@ -27,14 +24,6 @@ public class Supplier {
 	private Set<Product> products=new HashSet<Product>(0);
 	public int getSid() {
 		return sid;
-	}
-
-	public Set<Product> getProducts() {
-		return products;
-	}
-
-	public void setProducts(Set<Product> products) {
-		this.products = products;
 	}
 
 	public void setSid(int sid) {
@@ -49,9 +38,12 @@ public class Supplier {
 		this.sname = sname;
 	}
 
-	@Override
-	public String toString() {
-		return "Supplier [id=" + sid + ", name=" + sname + "]";
+	public Set<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<Product> products) {
+		this.products = products;
 	}
 
 }

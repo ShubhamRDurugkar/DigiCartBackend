@@ -1,16 +1,7 @@
-//package com.DigiCartBackend.test;
-//
-//import static org.junit.Assert.assertEquals;
-//
-//import org.junit.BeforeClass;
-//import org.junit.Test;
-//import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-//
-//import com.dao.UserDao;
-//import com.model.User;
-//
-//public class UserTestCase {
-//
+package com.DigiCartBackend.test;
+
+public class UserTestCase {
+
 //	private static AnnotationConfigApplicationContext context;
 //	private static UserDao userDao;
 //	private User user;
@@ -60,4 +51,4 @@
 //		assertEquals("Successfully fetched all supplier details from the table",1, userDao.getAllUsers().size());
 //	}
 //
-//}
+	}

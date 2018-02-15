@@ -8,13 +8,12 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Service;
 
 import com.dao.UserDao;
 import com.model.User;
-
+@Service
 @Repository("userDao")
-@Transactional
 public class UserDaoImpl implements UserDao {
 
 	@Autowired
@@ -32,7 +31,7 @@ public class UserDaoImpl implements UserDao {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		try {
-			sessionFactory.getCurrentSession().saveOrUpdate(user);
+			session.saveOrUpdate(user);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -47,7 +46,7 @@ public class UserDaoImpl implements UserDao {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		try {
-			sessionFactory.getCurrentSession().update(user);
+			session.update(user);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

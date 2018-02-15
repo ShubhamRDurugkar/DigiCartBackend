@@ -8,14 +8,14 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Service;
 
 import com.dao.SupplierDao;
 import com.model.Supplier;
 
 
 @Repository("supplierDAO")
-@Transactional
+@Service
 
 public class SupplierDaoImpl implements SupplierDao {
 
@@ -31,7 +31,7 @@ public class SupplierDaoImpl implements SupplierDao {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		try {
-			sessionFactory.getCurrentSession().saveOrUpdate(supp);
+			session.saveOrUpdate(supp);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -68,7 +68,7 @@ public class SupplierDaoImpl implements SupplierDao {
 		Supplier supplier = (Supplier) sessionFactory.getCurrentSession().load(Supplier.class, id);
 		try {
 			if (null != supplier) {
-				this.sessionFactory.getCurrentSession().delete(supplier);
+				session.delete(supplier);
 			}
 			return true;
 		} catch (Exception e) {

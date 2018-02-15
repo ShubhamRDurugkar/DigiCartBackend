@@ -18,6 +18,10 @@ import com.daoimpl.CategoryDaoImpl;
 import com.daoimpl.ProductDaoImpl;
 import com.daoimpl.SupplierDaoImpl;
 import com.daoimpl.UserDaoImpl;
+import com.model.Category;
+import com.model.Product;
+import com.model.Supplier;
+import com.model.User;
 
 @Configuration
 @ComponentScan
@@ -48,11 +52,11 @@ public class HibernateConfig {
 		builder.addProperties(getHibernateProperties());
 		
 		System.out.println("Properties added");
-		builder.scanPackages("com.model");
-		// builder.addAnnotatedClass(User.class);
-		// builder.addAnnotatedClass(Supplier.class);
-		// builder.addAnnotatedClass(Category.class);
-		// builder.addAnnotatedClass(Product.class);
+		//builder.scanPackages("com.model");
+		 builder.addAnnotatedClass(User.class);
+		 builder.addAnnotatedClass(Supplier.class);
+		 builder.addAnnotatedClass(Category.class);
+		 builder.addAnnotatedClass(Product.class);
 		//builder.addAnnotatedClass(Order.class);
 		//builder.addAnnotatedClass(Cart.class);
 		

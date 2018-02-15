@@ -8,14 +8,13 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Service;
 
 import com.dao.CategoryDao;
 import com.model.Category;
 
-
 @Repository("categoryDao")
-@Transactional
+@Service
 
 public class CategoryDaoImpl implements CategoryDao {
 	@Autowired
@@ -23,14 +22,14 @@ public class CategoryDaoImpl implements CategoryDao {
 
 	public CategoryDaoImpl(SessionFactory sf) {
 		super();
-		this.sessionFactory=sf;
+		this.sessionFactory = sf;
 	}
 
 	public boolean insertCategory(Category category) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		try {
-			sessionFactory.getCurrentSession().saveOrUpdate(category);
+			session.saveOrUpdate(category);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -46,7 +45,7 @@ public class CategoryDaoImpl implements CategoryDao {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		try {
-			sessionFactory.getCurrentSession().update(category);
+			session.update(category);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -63,7 +62,7 @@ public class CategoryDaoImpl implements CategoryDao {
 		Category category = (Category) sessionFactory.getCurrentSession().load(Category.class, cid);
 		try {
 			if (null != category) {
-				this.sessionFactory.getCurrentSession().delete(category);
+				session.delete(category);
 			}
 			return true;
 		} catch (Exception e) {
