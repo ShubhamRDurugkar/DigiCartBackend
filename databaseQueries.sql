@@ -1,5 +1,5 @@
 CREATE TABLE supplier(
-sid int,
+sid varchar,
 sname varchar(50),
 CONSTRAINT pk_supplier_sid PRIMARY KEY (sid)
 );
@@ -24,10 +24,10 @@ CONSTRAINT pk_category_cid PRIMARY KEY (cid)
 
 CREATE TABLE products(
 pid int,
-productName varchar(50),
-productDescription varchar(200),
-productPrice int,
-stock int,
-productImage varchar(50),
+pname varchar(50),
+pDescription varchar(200),
+pPrice int,
+pStock int,
+pImage varchar(50),
 CONSTRAINT pk_products_pid PRIMARY KEY (pid)
 );

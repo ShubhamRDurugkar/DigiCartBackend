@@ -14,19 +14,21 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-@Table(name = "supplier")
+@Table
 public class Supplier {
 	@Id
-	private int sid;
+	private String sid;
 	private String sname;
 
 	@OneToMany(targetEntity=Product.class,fetch=FetchType.EAGER,mappedBy="supplier")
 	private Set<Product> products=new HashSet<Product>(0);
-	public int getSid() {
+	
+
+	public String getSid() {
 		return sid;
 	}
 
-	public void setSid(int sid) {
+	public void setSid(String sid) {
 		this.sid = sid;
 	}
 

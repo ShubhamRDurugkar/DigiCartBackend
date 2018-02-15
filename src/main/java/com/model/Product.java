@@ -18,10 +18,10 @@ public class Product {
 	@Id
 	@GeneratedValue
 	private int pid;
-	private String productName;
-	private String productDescription;
-	private Float productPrice;
-	private Integer stock;
+	private String pname;
+	private String pDescription;
+	private Float pPrice;
+	private Integer pStock;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "cid")
@@ -43,28 +43,46 @@ public class Product {
 		this.pid = pid;
 	}
 
-	public String getProductName() {
-		return productName;
+	
+
+	public String getPname() {
+		return pname;
 	}
 
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setPname(String pname) {
+		this.pname = pname;
 	}
 
-	public String getProductDescription() {
-		return productDescription;
+	public String getpDescription() {
+		return pDescription;
 	}
 
-	public void setProductDescription(String productDescription) {
-		this.productDescription = productDescription;
+	public void setpDescription(String pDescription) {
+		this.pDescription = pDescription;
 	}
 
-	public Float getProductPrice() {
-		return productPrice;
+	public Float getpPrice() {
+		return pPrice;
 	}
 
-	public void setProductPrice(Float productPrice) {
-		this.productPrice = productPrice;
+	public void setpPrice(Float pPrice) {
+		this.pPrice = pPrice;
+	}
+
+	public Integer getpStock() {
+		return pStock;
+	}
+
+	public void setpStock(Integer pStock) {
+		this.pStock = pStock;
+	}
+
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
 	}
 
 	public MultipartFile getProductImage() {
@@ -83,13 +101,7 @@ public class Product {
 		this.imgname = imgname;
 	}
 
-	public Integer getStock() {
-		return stock;
-	}
-
-	public void setStock(Integer stock) {
-		this.stock = stock;
-	}
+	
 
 	public Category getCategory() {
 		return category;
