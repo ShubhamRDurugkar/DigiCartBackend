@@ -2,8 +2,6 @@ package com.daoimpl;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -17,17 +15,16 @@ import com.model.Product;
 @Repository
 @Service
 public class ProductDaoImpl implements ProductDao {
-	
+
 	@Autowired
 	SessionFactory sessionFactory;
-	
+
 	@Autowired
 	public ProductDaoImpl(SessionFactory sessionFactory) {
 		super();
 		this.sessionFactory = sessionFactory;
 	}
 
-	@Transactional
 	public void insertProduct(Product product) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
@@ -35,18 +32,16 @@ public class ProductDaoImpl implements ProductDao {
 		session.getTransaction().commit();
 		session.close();
 	}
-	
-	@Transactional
+
 	public void updateProduct(Product product) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		session.update(product);
 		session.getTransaction().commit();
 		session.close();
-		
+
 	}
 
-	@Transactional
 	public void deleteProduct(Product product) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
@@ -55,7 +50,7 @@ public class ProductDaoImpl implements ProductDao {
 		session.close();
 	}
 
-	@Transactional
+	
 	public Product getProduct(int id) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
@@ -65,13 +60,11 @@ public class ProductDaoImpl implements ProductDao {
 		return product;
 	}
 
-	@Transactional
 	public List<Product> getAllProducts() {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		@SuppressWarnings("unchecked")
-		Query<Product> query =  session.createQuery("FROM Product");
-		//@SuppressWarnings("unchecked")
+		Query<Product> query = session.createQuery("FROM Product");
 		List<Product> productsList = query.list();
 		return productsList;
 	}

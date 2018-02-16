@@ -52,7 +52,7 @@ public class HibernateConfig {
 		builder.addProperties(getHibernateProperties());
 		
 		System.out.println("Properties added");
-		//builder.scanPackages("com.model");
+		
 		 builder.addAnnotatedClass(User.class);
 		 builder.addAnnotatedClass(Supplier.class);
 		 builder.addAnnotatedClass(Category.class);

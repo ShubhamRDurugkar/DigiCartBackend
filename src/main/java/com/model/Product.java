@@ -3,6 +3,7 @@ package com.model;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -11,12 +12,13 @@ import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
+
 @Component
 @Entity
-@Table(name = "products")
+@Table
 public class Product {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int pid;
 	private String pname;
 	private String pDescription;
@@ -32,8 +34,8 @@ public class Product {
 	private Supplier supplier;
 
 	@Transient
-	MultipartFile productImage;
-	private String imgname;
+	MultipartFile pImage;
+	private String pimage;
 
 	public int getPid() {
 		return pid;
@@ -42,8 +44,6 @@ public class Product {
 	public void setPid(int pid) {
 		this.pid = pid;
 	}
-
-	
 
 	public String getPname() {
 		return pname;
@@ -85,20 +85,20 @@ public class Product {
 		this.supplier = supplier;
 	}
 
-	public MultipartFile getProductImage() {
-		return productImage;
+	public MultipartFile getpImage() {
+		return pImage;
 	}
 
-	public void setProductImage(MultipartFile productImage) {
-		this.productImage = productImage;
+	public String getPimage() {
+		return pimage;
 	}
 
-	public String getImgname() {
-		return imgname;
+	public void setPimage(String pimage) {
+		this.pimage = pimage;
 	}
 
-	public void setImgname(String imgname) {
-		this.imgname = imgname;
+	public void setpImage(MultipartFile pImage) {
+		this.pImage = pImage;
 	}
 
 	
@@ -111,5 +111,4 @@ public class Product {
 		this.category = category;
 	}
 
-	
 }

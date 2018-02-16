@@ -22,8 +22,10 @@ cname varchar(50),
 CONSTRAINT pk_category_cid PRIMARY KEY (cid)
 );
 
-CREATE TABLE products(
-pid int,
+CREATE TABLE product(
+pid IDENTITY,
+cid varchar(50),
+sid varchar(50),
 pname varchar(50),
 pDescription varchar(200),
 pPrice int,

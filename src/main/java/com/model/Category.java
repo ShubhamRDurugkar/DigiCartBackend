@@ -22,7 +22,6 @@ public class Category {
 
 	@OneToMany(targetEntity = Product.class, fetch = FetchType.EAGER, mappedBy = "category")
 	private Set<Product> products = new HashSet<Product>(0);
-	
 
 	public String getCid() {
 		return cid;
@@ -47,7 +46,5 @@ public class Category {
 	public void setProducts(Set<Product> products) {
 		this.products = products;
 	}
-
-	
 
 }

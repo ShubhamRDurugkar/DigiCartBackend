@@ -84,11 +84,12 @@ public class CategoryDaoImpl implements CategoryDao {
 		return category;
 	}
 
-	@SuppressWarnings("unchecked")
+
 	public List<Category> getAllCategories() {
 		List<Category> catList = new ArrayList<Category>();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
+		@SuppressWarnings("unchecked")
 		Query<Category> query = session.createQuery("FROM Category");
 		catList = query.list();
 		session.getTransaction().commit();
