@@ -6,7 +6,7 @@ CONSTRAINT pk_supplier_sid PRIMARY KEY (sid)
 
 CREATE TABLE user(
 name varchar(50),
-password varchar(50),
+password varchar(60),
 email varchar(50),
 address varchar(50),
 phone varchar(50),

@@ -75,15 +75,6 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
-	public User getUserById(int id) {
-		Session session = sessionFactory.openSession();
-		session.beginTransaction();
-		User user = (User) session.get(User.class, id);
-		session.getTransaction().commit();
-		session.close();
-		return user;
-	}
-
 	@SuppressWarnings("unchecked")
 	public List<User> getAllUsers() {
 		Session session = sessionFactory.openSession();
@@ -93,6 +84,16 @@ public class UserDaoImpl implements UserDao {
 		session.getTransaction().commit();
 		session.close();
 		return userList;
+	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		User user = (User) session.get(User.class, email);
+		session.getTransaction().commit();
+		session.close();
+		return user;
 	}
 
 }

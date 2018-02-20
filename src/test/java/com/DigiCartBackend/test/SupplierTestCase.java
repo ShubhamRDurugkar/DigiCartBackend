@@ -12,11 +12,11 @@ public class SupplierTestCase {
 //		context.refresh();
 //		supplierDao = (SupplierDao) context.getBean("supplierDAO");
 //	}
-////
+//
 //	@Test
 //	public void testAddSupplier() {
 //		supplier = new Supplier();
-//		//supplier.setSid(sid);
+//		supplier.setSid("12");
 //		supplier.setSname("Akash");
 //		assertEquals("Successfully added a supplier details into the table", true, supplierDao.insertSupp(supplier));
 //	}

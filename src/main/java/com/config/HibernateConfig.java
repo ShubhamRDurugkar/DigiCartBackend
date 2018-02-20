@@ -50,16 +50,16 @@ public class HibernateConfig {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
 		System.out.println("Session Object created..");
 		builder.addProperties(getHibernateProperties());
-		
+
 		System.out.println("Properties added");
-		
-		 builder.addAnnotatedClass(User.class);
-		 builder.addAnnotatedClass(Supplier.class);
-		 builder.addAnnotatedClass(Category.class);
-		 builder.addAnnotatedClass(Product.class);
-		//builder.addAnnotatedClass(Order.class);
-		//builder.addAnnotatedClass(Cart.class);
-		
+
+		builder.addAnnotatedClass(User.class);
+		builder.addAnnotatedClass(Supplier.class);
+		builder.addAnnotatedClass(Category.class);
+		builder.addAnnotatedClass(Product.class);
+		// builder.addAnnotatedClass(Order.class);
+		// builder.addAnnotatedClass(Cart.class);
+
 		System.out.println("All classes added");
 		return builder.buildSessionFactory();
 	}
@@ -69,7 +69,7 @@ public class HibernateConfig {
 		Properties properties = new Properties();
 		properties.put("hibernate.dialect", database_dialect);
 		properties.put("hibernate.show_sql", "true");
-		properties.put("hibernate.format_sql", "true");
+		properties.put("hibernate.hbm2ddl.auto", "update");
 		System.out.println("Hibernate properties created");
 		return properties;
 	}
@@ -98,16 +98,16 @@ public class HibernateConfig {
 		return new ProductDaoImpl(sf);
 	}
 
-//	@Autowired
-//	@Bean(name = "orderDaoImpl")
-//	public OrderDaoImpl getOrderData(SessionFactory sf) {
-//		return new OrderDaoImpl(sf);
-//	}
-//	@Autowired
-//	@Bean(name = "cartDaoImpl")
-//	public cartDaoImpl getCartData(SessionFactory sf) {
-//		return new CartDaoImpl(sf);
-//	}
+	// @Autowired
+	// @Bean(name = "orderDaoImpl")
+	// public OrderDaoImpl getOrderData(SessionFactory sf) {
+	// return new OrderDaoImpl(sf);
+	// }
+	// @Autowired
+	// @Bean(name = "cartDaoImpl")
+	// public cartDaoImpl getCartData(SessionFactory sf) {
+	// return new CartDaoImpl(sf);
+	// }
 	// transactionManager
 	@Autowired
 	@Bean(name = ("transactionManager"))
