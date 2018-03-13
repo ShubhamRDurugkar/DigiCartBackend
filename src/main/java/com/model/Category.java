@@ -17,17 +17,17 @@ import org.springframework.stereotype.Component;
 public class Category {
 
 	@Id
-	private String cid;
+	private int cid;
 	private String cname;
 
 	@OneToMany(targetEntity = Product.class, fetch = FetchType.EAGER, mappedBy = "category")
 	private Set<Product> products = new HashSet<Product>(0);
 
-	public String getCid() {
+	public int getCid() {
 		return cid;
 	}
 
-	public void setCid(String cid) {
+	public void setCid(int cid) {
 		this.cid = cid;
 	}
 

@@ -75,7 +75,7 @@ public class CategoryDaoImpl implements CategoryDao {
 
 	}
 
-	public Category getCategory(String cid) {
+	public Category getCategory(int cid) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		Category category = (Category) session.get(Category.class, cid);

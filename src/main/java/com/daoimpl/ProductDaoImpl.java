@@ -42,25 +42,26 @@ public class ProductDaoImpl implements ProductDao {
 
 	}
 
-	public void deleteProduct(Product product) {
+	public void deleteProduct(int pid) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
+		Product product = session.get(Product.class, pid);
 		session.delete(product);
 		session.getTransaction().commit();
 		session.close();
 	}
 
 	
-	public Product getProduct(int id) {
+	public Product getProductById(int pid) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		Product product = session.get(Product.class, id);
+		Product product = session.get(Product.class, pid);
 		session.getTransaction().commit();
 		session.close();
 		return product;
 	}
 
-	public List<Product> getAllProducts() {
+	public List<Product> retrieveProducts() {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		@SuppressWarnings("unchecked")
@@ -69,4 +70,12 @@ public class ProductDaoImpl implements ProductDao {
 		return productsList;
 	}
 
+	public List<Product> getProductByCid(String cid){
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		@SuppressWarnings("unchecked")
+		Query<Product> query = session.createQuery("FROM Product where cid="+cid);
+		List<Product> productsList = query.list();
+		return productsList;
+	}
 }
